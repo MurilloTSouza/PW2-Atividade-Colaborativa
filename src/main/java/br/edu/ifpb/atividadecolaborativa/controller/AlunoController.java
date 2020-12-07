@@ -65,10 +65,10 @@ public class AlunoController {
     public String novoAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
             attributes.addFlashAttribute("mensagem", "Verifique se os campos obrigatórios foram preenchidos.");
-            return "redirect:/cadastrarAluno";
+            return "redirect:/novoAluno";
         }
         service.save(aluno);
-        return "redirect:/listaAlunos";
+        return "redirect:/alunos";
     }
 
     @RequestMapping(path = {"/editarAluno/{id}"})
