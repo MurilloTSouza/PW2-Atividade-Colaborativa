@@ -15,6 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // Qualquer URL aqui nao usara autenticacao
     // independente de ser GET, POST, DELETE ou PUT
     private static final String[] NO_AUTH_PATHS = {
+            "/swagger-ui.html"
     };
 
     private static final String ADMIN_ROLE = "ADMIN";
