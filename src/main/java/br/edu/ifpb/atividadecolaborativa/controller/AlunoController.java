@@ -82,7 +82,8 @@ public class AlunoController {
         }
 
         service.update(id,aluno);
-        ModelAndView mv = new ModelAndView("listaAlunos");
+        ModelAndView mv = new ModelAndView("aluno");
+        mv.addObject("aluno",aluno);
         return mv;
 
     }
@@ -90,7 +91,7 @@ public class AlunoController {
     @RequestMapping(path = "/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         service.delete(id);
-        return "redirect:/listaAlunos";
+        return "redirect:/alunos";
 
     }
 
