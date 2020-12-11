@@ -87,10 +87,10 @@ public class AlunoController {
 
     }
 
-    @RequestMapping(path = "/delete/{id}")
+    @RequestMapping(value = "/delete/{id}",  method = RequestMethod.GET)
     public String delete(@PathVariable("id") Long id) {
         service.delete(id);
-        return "redirect:/listaAlunos";
+        return "redirect:/alunos";
 
     }
 
