@@ -82,7 +82,8 @@ public class AlunoController {
         }
 
         service.update(id,aluno);
-        ModelAndView mv = new ModelAndView("listaAlunos");
+        ModelAndView mv = new ModelAndView("aluno");
+        mv.addObject("aluno",aluno);
         return mv;
 
     }

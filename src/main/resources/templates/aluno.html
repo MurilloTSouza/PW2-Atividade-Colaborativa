@@ -47,7 +47,8 @@
             </p>
 
             <br>
-            <a  class="btn btn-primary" role="button" style="margin-top: 10px">Atualizar</a>
+
+            <a th:href="${(#mvc.url('AC#getAtualizar').arg(0, aluno.id)).build()}" class="btn btn-primary" role="button" style="margin-top: 10px">Atualizar</a>
             <a th:href="@{/delete/{id} (id = ${aluno.id})}" class="btn btn-danger" role="button" style="margin-top: 10px">Deletar</a>
 
                 </div>
