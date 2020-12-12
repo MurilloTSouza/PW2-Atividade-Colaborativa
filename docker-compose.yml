@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    db:
+        build: ./db/
+        ports:
+            - "5432:5432"
+        container_name: atividade_pw2-postgres
+    web:
+        build: .
+        links:
+            - db:banco
+        ports:
+          - "5000:5000"
+        container_name: web_atividade_pw2
