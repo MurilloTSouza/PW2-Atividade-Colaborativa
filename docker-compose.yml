@@ -2,10 +2,14 @@ version: '3'
 
 services:
     db:
-        build: ./db/
+        image: 'postgres:13.1-alpine'
+        container_name: db
         ports:
-            - "5432:5432"
-        container_name: atividade_pw2-postgres
+          - "5433:5432"
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=1234
+          - POSTGRES_DB=database
     web:
         build: .
         links:
@@ -13,3 +17,9 @@ services:
         ports:
           - "5000:5000"
         container_name: web_atividade_pw2
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/database
+            - SPRING_DATASOURCE_USERNAME=postgres
+            - SPRING_DATASOURCE_PASSWORD=1234
+            - SPRING_DATASOURCE_DB=database
+            - SPRING_JPA_HIBERNATE_DDL_AUTO=update
